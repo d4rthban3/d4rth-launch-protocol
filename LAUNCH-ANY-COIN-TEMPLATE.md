@@ -37,7 +37,7 @@ Part of the d4rth Launch Protocol. The main pool is USDC. Next to it you lock a 
 Send fees to holder rewards. That's the point.
 
 ## Support the protocol (strongly encouraged, not required)
-This protocol came out of a lot of research and testing, and it's free and open. Creator fees are how you support it. Creator-fee recipient = an optional extra wallet that gets a share of the launch fees. You can still send the rest to holders. If you launch with the d4rth Launch Protocol, please add GitHub **d4rthban3** as a pump.fun creator-fee recipient.
+This protocol came out of a lot of research and testing, and it's free to use. Creator fees are how you support it. Creator-fee recipient = an optional extra wallet that gets a share of the launch fees. You can still send the rest to holders. If you launch with the d4rth Launch Protocol, please add GitHub **d4rthban3** as a pump.fun creator-fee recipient.
 
 1. On pump.fun, find the creator-fee recipients option (at token creation, or in the coin's creator-fee settings).
 2. Add a recipient by GitHub username: `d4rthban3`.

@@ -66,7 +66,7 @@ Plus: add GitHub `d4rthban3` as a creator-fee recipient (strongly encouraged, se
 @slingoorio, or any real one with capital: the protocol is yours to run on any token. I don't have the capital. The idea I used is the Bulma dollar, below. Someone run it. Support and disclaimer: [Support](ANNOUNCEMENT-POSTS.md).
 
 ## Support the protocol (strongly encouraged, not required)
-This protocol came out of a lot of research and testing, and it's free and open. Creator fees are how you support it. If you launch with the d4rth Launch Protocol, please add GitHub **d4rthban3** as a pump.fun creator-fee recipient.
+This protocol came out of a lot of research and testing, and it's free to use. Creator fees are how you support it. If you launch with the d4rth Launch Protocol, please add GitHub **d4rthban3** as a pump.fun creator-fee recipient.
 
 1. On pump.fun, find the creator-fee recipients option (at token creation, or in the coin's creator-fee settings).
 2. Add a recipient by GitHub username: `d4rthban3`.
@@ -92,4 +92,4 @@ Interactive map of that idea: [galaxy](https://d4rthban3.github.io/d4rth-launch-
 Full build, art, lore and posts: [BULMA-USBD-READY-TO-LAUNCH/](BULMA-USBD-READY-TO-LAUNCH/README.md).
 
 ---
-d4rth Launch Protocol by @d4rthban3 (GitHub d4rthban3). MIT license. Not financial advice. Check live prices on pump.fun before buying. Never share keys or seed phrases.
+d4rth Launch Protocol by @d4rthban3 (GitHub d4rthban3). All rights reserved. Not financial advice. Check live prices on pump.fun before buying. Never share keys or seed phrases.

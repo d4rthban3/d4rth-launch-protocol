@@ -19,6 +19,6 @@ Credit line, if you want one: `d4rth Launch Protocol by @d4rthban3 (GitHub d4rth
 - Fan parody. Not a stablecoin, not pegged to anything, not affiliated with any anime studio.
 - Check the live price on pump.fun before you buy. The price moves with every buy.
 - Never share your keys or seed phrase with anyone. Not with me. Not with a site.
-- Open source, MIT license. You can copy it, change it, and launch with it.
+- Not open source. All rights reserved. Follow the protocol as written to launch with it.
 
 d4rth Launch Protocol by @d4rthban3. GitHub [d4rthban3/d4rth-launch-protocol](https://github.com/d4rthban3/d4rth-launch-protocol).
