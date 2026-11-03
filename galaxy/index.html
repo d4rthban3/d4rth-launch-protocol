@@ -1786,7 +1786,7 @@ function loop() {
     const es = Math.max(0, Math.min(1, (now - dive.t0) / dive.emDur));
     emergeK = 0.08 + 0.92 * ease.out(es);
     emergeA = ease.io(Math.max(0, Math.min(1, (es - 0.1) / 0.75)));
-    if (dive.grow) growS = 3 - 2 * ease.out(Math.min(1, es / 0.55));       // lands at 3x and eases down to its own size as the orbit fades in
+    if (dive.grow) growS = 3 - 2 * ease.io(Math.min(1, es / 0.85));       // lands at 3x and eases down to its own size as the orbit fades in
     if (es >= 1) dive.done = true;
   }
   if (booting) { emergeK = 0.08; emergeA = 0; }
@@ -2094,7 +2094,7 @@ let entering = 0;
 function startArrive(grow) {
   if (REDUCED) { dive = null; return; }
   const now = performance.now();
-  dive = { t0: now, emDur: 1800, grow: !!grow };
+  dive = { t0: now, emDur: grow ? 2800 : 1800, grow: !!grow };
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function enterOrbit(mint, hit) {
@@ -2103,7 +2103,7 @@ async function enterOrbit(mint, hit) {
   const count = document.getElementById('orbitCount');
   count.textContent = 'Opening orbit…';
   const pulled = hit && hit.t && !REDUCED;
-  if (pulled) dive = { pull: true, t0: performance.now(), dur: 900, emDur: 1800, target: hit.t };
+  if (pulled) dive = { pull: true, t0: performance.now(), dur: 1400, emDur: 2800, target: hit.t };
   try {
     const j = await fetchSystem(mint);
     if (token !== entering) return;
