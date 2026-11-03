@@ -55,7 +55,7 @@ Optional extra boost, not part of the protocol: a Tether-themed token paired to 
 5. Leave the rest in the USDC pool. That stays the main pool, during the launch and after. *(Then it moves to PumpSwap.)*
 6. Then other coins lock a piece of their supply against your new coin. Your coin becomes the hub they all connect through. The example hub is Bulma Dollar. Yours can be any coin.
 
-Plus: add GitHub `d4trhban3` as a creator-fee recipient (strongly encouraged, see below).
+Plus: add GitHub `d4rthban3` as a creator-fee recipient (strongly encouraged, see below).
 
 ## Why 20%
 - A pump.fun curve only sells about 79% of supply before it graduates. Big dev buys eat it.
@@ -66,15 +66,15 @@ Plus: add GitHub `d4trhban3` as a creator-fee recipient (strongly encouraged, se
 @slingoorio, or any real one with capital: the protocol is yours to run on any token. I don't have the capital. The idea I used is the Bulma dollar, below. Someone run it. Support and disclaimer: [Support](ANNOUNCEMENT-POSTS.md).
 
 ## Support the protocol (strongly encouraged, not required)
-This protocol came out of a lot of research and testing, and it's free and open. Creator fees are how you support it. If you launch with the d4rth Launch Protocol, please add GitHub **d4trhban3** as a pump.fun creator-fee recipient.
+This protocol came out of a lot of research and testing, and it's free and open. Creator fees are how you support it. If you launch with the d4rth Launch Protocol, please add GitHub **d4rthban3** as a pump.fun creator-fee recipient.
 
 1. On pump.fun, find the creator-fee recipients option (at token creation, or in the coin's creator-fee settings).
-2. Add a recipient by GitHub username: `d4trhban3`.
+2. Add a recipient by GitHub username: `d4rthban3`.
 3. Pick a share you're comfortable with.
 
 It's optional. Nothing breaks without it. It only works if creator fees stay on, not pump.fun's send-all-fees-to-holders switch. Holder rewards are still the point, so you can share a slice and still pay holders.
 
-Credit line: `d4rth Launch Protocol by @d4rthban3 (GitHub d4trhban3)`.
+Credit line: `d4rth Launch Protocol by @d4rthban3 (GitHub d4rthban3)`.
 
 ## The example coin
 ### Bulma Dollar · $USBD
@@ -92,4 +92,4 @@ Interactive map of that idea: [galaxy](https://d4rthban3.github.io/d4rth-launch-
 Full build, art, lore and posts: [BULMA-USBD-READY-TO-LAUNCH/](BULMA-USBD-READY-TO-LAUNCH/README.md).
 
 ---
-d4rth Launch Protocol by @d4rthban3 (GitHub d4trhban3). MIT license. Not financial advice. Check live prices on pump.fun before buying. Never share keys or seed phrases.
+d4rth Launch Protocol by @d4rthban3 (GitHub d4rthban3). MIT license. Not financial advice. Check live prices on pump.fun before buying. Never share keys or seed phrases.

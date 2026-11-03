@@ -50,7 +50,7 @@ Every eco token gets a pool against the treasury hub.
 
 ## Fees
 Holder rewards are the point. To also share creator fees, keep creator fees **on** (not pump.fun’s send-all-fees-to-holders switch) and pay holders from there.  
-Strongly encouraged (not required): add GitHub `d4trhban3` as a creator-fee recipient. Nothing breaks without it.
+Strongly encouraged (not required): add GitHub `d4rthban3` as a creator-fee recipient. Nothing breaks without it.
 
 ## Cost notes
 - The curve gets pricier with every buy. Check the live price on pump.fun before buying.

@@ -24,7 +24,7 @@ Full details in [HOW-TO-LAUNCH-USBD.md](HOW-TO-LAUNCH-USBD.md).
 
 Here's the whole package: art, logo, steps, posts, lore — all done.
 
-**From me:** I designed this on purpose to supercharge the Big Titty ecosystem. I don't have the liquidity to launch it myself. If you launch it, throwing me some creator fees would be dope (GitHub `d4trhban3` as a pump.fun fee recipient). Strongly encouraged, not required. Nothing breaks without it. Only works if creator fees stay on. See [Support the protocol](../README.md).
+**From me:** I designed this on purpose to supercharge the Big Titty ecosystem. I don't have the liquidity to launch it myself. If you launch it, throwing me some creator fees would be dope (GitHub `d4rthban3` as a pump.fun fee recipient). Strongly encouraged, not required. Nothing breaks without it. Only works if creator fees stay on. See [Support the protocol](../README.md).
 
 Launch post: [ANNOUNCEMENT-POSTS.md](../ANNOUNCEMENT-POSTS.md) · Use it for any token: [LAUNCH-ANY-COIN-TEMPLATE.md](../LAUNCH-ANY-COIN-TEMPLATE.md)
 
