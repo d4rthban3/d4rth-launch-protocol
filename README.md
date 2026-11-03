@@ -1,4 +1,4 @@
-**Read this on the dark page:** https://d4trhban3.github.io/d4rth-launch-protocol/README.html
+**Read this on the dark page:** https://d4rthban3.github.io/d4rth-launch-protocol/README.html
 
 # d4rth Launch Protocol
 
@@ -9,7 +9,7 @@ Most new coins start thin and die. This is a six-step way to launch so the main 
 **Start here**
 - Launching your own coin? → [LAUNCH-ANY-COIN-TEMPLATE.md](LAUNCH-ANY-COIN-TEMPLATE.md)
 - The idea I used, ready to launch → [BULMA-USBD-READY-TO-LAUNCH/](BULMA-USBD-READY-TO-LAUNCH/README.md)
-- That idea on the map → [interactive galaxy](https://d4trhban3.github.io/d4rth-launch-protocol/galaxy/)
+- That idea on the map → [interactive galaxy](https://d4rthban3.github.io/d4rth-launch-protocol/galaxy/)
 - Support the protocol (creator fees) → [section below](#support-the-protocol-strongly-encouraged-not-required)
 
 **A launch guide for any Solana coin that should have real money behind it.**
@@ -39,7 +39,7 @@ Every coin in the group gets a pool with it. Bulma becomes the hub they all conn
 
 Open the map and hit **Add Bulma**. $BTC and Bulma become twin suns. That map is the example. Same shape if the hub is a coin of your choice.
 
-**Live map:** [Big Titty Galaxy](https://d4trhban3.github.io/d4rth-launch-protocol/galaxy/)
+**Live map:** [Big Titty Galaxy](https://d4rthban3.github.io/d4rth-launch-protocol/galaxy/)
 
 Full sequence and the example pack: [BULMA-USBD-READY-TO-LAUNCH/](BULMA-USBD-READY-TO-LAUNCH/README.md).
 
@@ -87,7 +87,7 @@ This is the coin I wrote in. I liked the sound of it. I'd be happy if you launch
 
 Same six steps. Launch paired with USDC. Buy about 20%. Lock 10% with BTC. Lock the next 10% with SOL. Leave the rest on USDC. Then other coins lock a piece of their supply against it.
 
-Interactive map of that idea: [galaxy](https://d4trhban3.github.io/d4rth-launch-protocol/galaxy/)
+Interactive map of that idea: [galaxy](https://d4rthban3.github.io/d4rth-launch-protocol/galaxy/)
 
 Full build, art, lore and posts: [BULMA-USBD-READY-TO-LAUNCH/](BULMA-USBD-READY-TO-LAUNCH/README.md).
 

@@ -1,4 +1,4 @@
-**Read this on the dark page:** https://d4trhban3.github.io/d4rth-launch-protocol/LAUNCH-ANY-COIN-TEMPLATE.html
+**Read this on the dark page:** https://d4rthban3.github.io/d4rth-launch-protocol/LAUNCH-ANY-COIN-TEMPLATE.html
 
 # Launch any coin
 

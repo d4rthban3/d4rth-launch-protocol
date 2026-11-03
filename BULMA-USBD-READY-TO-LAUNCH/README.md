@@ -1,4 +1,4 @@
-**Read this on the dark page:** https://d4trhban3.github.io/d4rth-launch-protocol/BULMA-USBD-READY-TO-LAUNCH/README.html
+**Read this on the dark page:** https://d4rthban3.github.io/d4rth-launch-protocol/BULMA-USBD-READY-TO-LAUNCH/README.html
 
 **This folder is the example coin.** I liked the sound of Bulma Dollar. I'd be happy if you launched it. Just as happy if the coin is yours. If you use this one, the ticker is $USBD.
 

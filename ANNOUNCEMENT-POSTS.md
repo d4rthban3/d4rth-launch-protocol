@@ -1,4 +1,4 @@
-**Read this on the dark page:** https://d4trhban3.github.io/d4rth-launch-protocol/ANNOUNCEMENT-POSTS.html
+**Read this on the dark page:** https://d4rthban3.github.io/d4rth-launch-protocol/ANNOUNCEMENT-POSTS.html
 
 # Support the creator
 
@@ -21,4 +21,4 @@ Credit line, if you want one: `d4rth Launch Protocol by @d4rthban3 (GitHub d4trh
 - Never share your keys or seed phrase with anyone. Not with me. Not with a site.
 - Open source, MIT license. You can copy it, change it, and launch with it.
 
-d4rth Launch Protocol by @d4rthban3. GitHub [d4trhban3/d4rth-launch-protocol](https://github.com/d4trhban3/d4rth-launch-protocol).
+d4rth Launch Protocol by @d4rthban3. GitHub [d4trhban3/d4rth-launch-protocol](https://github.com/d4rthban3/d4rth-launch-protocol).

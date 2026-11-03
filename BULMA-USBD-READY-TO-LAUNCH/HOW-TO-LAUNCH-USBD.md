@@ -1,4 +1,4 @@
-**Read this on the dark page:** https://d4trhban3.github.io/d4rth-launch-protocol/BULMA-USBD-READY-TO-LAUNCH/HOW-TO-LAUNCH-USBD.html
+**Read this on the dark page:** https://d4rthban3.github.io/d4rth-launch-protocol/BULMA-USBD-READY-TO-LAUNCH/HOW-TO-LAUNCH-USBD.html
 
 # Launch $USBD · Ultimate Super Bulma Dragonballs
 
