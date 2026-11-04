@@ -1846,14 +1846,21 @@ function loop() {
   const hits = [];
   const spread = orbitSpread();
   if (showOrbits) {
+    // Each ring gets its own colour so the distinct inclined orbital planes read as separate shells.
+    const RING_COLORS = [
+      'rgba(255,183,51,0.50)',    // ring 0 – inner, gold
+      'rgba(100,210,160,0.44)',   // ring 1 – habitable, teal-green
+      'rgba(130,180,255,0.44)',   // ring 2 – gas giants, blue
+      'rgba(190,140,255,0.38)',   // ring 3 – deep reach, violet
+    ];
     RINGS.forEach((radius, ring) => {
       ctx.beginPath();
-      for (let i = 0; i <= 140; i++) {
-        const p = place(radius * spread, (i / 140) * Math.PI * 2, ring);
+      for (let i = 0; i <= 200; i++) {
+        const p = place(radius * spread, (i / 200) * Math.PI * 2, ring);
         if (i) ctx.lineTo(p.x, p.y); else ctx.moveTo(p.x, p.y);
       }
-      ctx.strokeStyle = 'rgba(119,118,106,0.34)';
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = RING_COLORS[ring] || 'rgba(119,118,106,0.34)';
+      ctx.lineWidth = 1.2;
       ctx.stroke();
     });
   }
