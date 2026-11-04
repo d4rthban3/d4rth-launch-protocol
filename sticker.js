@@ -1,16 +1,16 @@
-// The BTC logo on the Galaxy tab. Click the tab from any other page and the logo peels off like a
-// sticker, grows to 2x the size of the BTC disc on the map, and the galaxy page drops it into place.
+// The Star emblem on the Galaxy tab. Click the tab from any other page and the emblem peels off like a
+// sticker, grows to 3x the size of the Star disc on the map, and the galaxy page drops it into place.
 (function () {
   var link = [].slice.call(document.querySelectorAll('nav a')).filter(function (a) { return a.textContent.trim() === 'Galaxy'; })[0];
   if (!link) return;
   var style = document.createElement('style');
-  style.textContent = '.nav-btc{width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:8px;flex:none;' +
-    'border:1px solid rgba(255,255,255,.85);box-sizing:border-box;vertical-align:middle;display:inline-block}' +
-    'nav a .nav-btc{position:relative;top:-1px}';
+  style.textContent = '.nav-star{width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:8px;flex:none;' +
+    'border:1px solid rgba(255,235,59,.85);box-sizing:border-box;vertical-align:middle;display:inline-block;background:#ff9800;}' +
+    'nav a .nav-star{position:relative;top:-1px}';
   document.head.appendChild(style);
-  var src = new URL('art/btc.webp', link.href).href;
+  var src = new URL('art/star.svg', link.href).href;
   var logo = document.createElement('img');
-  logo.className = 'nav-btc'; logo.alt = ''; logo.src = src;
+  logo.className = 'nav-star'; logo.alt = ''; logo.src = src;
   link.insertBefore(logo, link.firstChild);
 
   if (/\/galaxy\/?(index\.html)?$/.test(location.pathname)) return;      // already on the galaxy
@@ -22,7 +22,7 @@
     logo.style.visibility = '';
   });
 
-  // Where the BTC disc will sit on the galaxy page, and how big it is there (estimated: the galaxy page
+  // Where the Star disc will sit on the galaxy page, and how big it is there (estimated: the galaxy page
   // measures the real thing and eases to it).
   function estimate() {
     var W = innerWidth, H = innerHeight;
@@ -42,8 +42,8 @@
     clone = document.createElement('img');
     clone.src = src; clone.alt = '';
     clone.style.cssText = 'position:fixed;z-index:9999;left:' + r.left + 'px;top:' + r.top + 'px;width:' + r.width + 'px;height:' + r.height +
-      'px;border-radius:50%;object-fit:cover;pointer-events:none;border:1px solid rgba(255,255,255,.9);box-sizing:border-box;' +
-      'will-change:transform,left,top,width,height;box-shadow:0 0 0 rgba(0,0,0,0)';
+      'px;border-radius:50%;object-fit:cover;pointer-events:none;border:1px solid rgba(255,235,59,.9);box-sizing:border-box;' +
+      'will-change:transform,left,top,width,height;box-shadow:0 0 0 rgba(0,0,0,0);background:#ff9800;';
     // the site behind it fades to the galaxy's own dark as the sticker flies
     var veil = document.createElement('div');
     veil.style.cssText = 'position:fixed;inset:0;z-index:9998;background:#10100e;opacity:0;pointer-events:none;transition:opacity .8s ease .1s';

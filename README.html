@@ -1,78 +1,9 @@
----
-layout: null
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>d4rth Launch Protocol · d4rth Launch Protocol</title>
-<style>
-  :root { color-scheme: dark; }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; background: #07090e; color: #e7ebf3; }
-  body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; min-height: 100vh; }
-  a { color: #d6b4ff; }
-  a:hover { color: #fff; }
-  nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
-  nav a {
-    display: inline-flex; align-items: center; justify-content: center;
-    color: #f4f6fb; text-decoration: none; font-size: 13px; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase;
-    background: #222836; border: 1px solid #8b93a7;
-    padding: 10px 16px; border-radius: 999px; min-height: 40px;
-  }
-  nav a:hover { background: #2c3446; border-color: #f5d78a; color: #f5d78a; }
-  nav a.on { background: #f5d78a; color: #1a1408; border-color: #f5d78a; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 22px 72px; }
-  .kicker { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6d7585; margin-bottom: 10px; }
-  h1 { margin: 0 0 8px; font-size: 36px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
-  .doc h2 { margin: 36px 0 12px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #f5d78a; font-weight: 650; }
-  .doc h3 { margin: 22px 0 8px; font-size: 16px; }
-  .doc p, .doc li { font-size: 15px; line-height: 1.55; color: #d5dbe6; }
-  .doc p { margin: 0 0 12px; }
-  .doc ul, .doc ol { margin: 0 0 16px; padding: 0; list-style: none; }
-  .doc li { padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.08); }
-  .doc ol { counter-reset: step; }
-  .doc ol li { display: block; position: relative; padding: 12px 0 12px 36px; }
-  .doc ol li::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: 14px; width: 28px; color: #f5d78a; font-size: 12px; }
-  .gallery { display: grid; gap: 14px; margin: 0 0 22px; }
-  .gallery.coins, .gallery.stickers { grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); }
-  .gallery.banners, .gallery.scenes { grid-template-columns: 1fr; }
-  .gallery figure { margin: 0; }
-  .gallery img { width: 100%; height: 160px; object-fit: contain; background: #101218; margin: 0; border-radius: 12px; }
-  .gallery.banners img, .gallery.scenes img { height: auto; }
-  .gallery figcaption { margin-top: 6px; font-size: 11px; line-height: 1.35; color: #8b93a3; }
-  .doc strong { color: #fff; font-weight: 650; }
-  .doc em { color: #f5d78a; font-style: normal; }
-  .doc code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #f5d78a; background: rgba(245,215,138,0.08); padding: 1px 6px; border-radius: 6px; word-break: break-all; }
-  .doc pre { background: #101218; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 16px; overflow-x: auto; margin: 0 0 14px; }
-  .doc pre code { background: none; padding: 0; color: #e7ebf3; white-space: pre-wrap; }
-  .doc img { width: auto; max-width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); margin: 12px auto 18px; display: block; }
-  .doc blockquote { margin: 8px 0 18px; padding: 14px 16px; border-left: 3px solid #f5d78a; background: rgba(245,215,138,0.06); border-radius: 0 12px 12px 0; }
-  .doc blockquote p { margin: 0; }
-  .doc hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 28px 0; }
-  footer { margin-top: 36px; color: #6d7585; font-size: 12px; }
-  @media (max-width: 720px) { h1 { font-size: 28px; } }
-</style>
-
-<style id="dlp-skin">
-  html, body { background: #070b14 !important; }
-  body { background-image: radial-gradient(ellipse 70% 42% at 110% -8%, rgba(42,72,110,0.4), transparent 55%) !important; }
-  nav a {
-    background: rgba(16,22,34,0.72) !important;
-    border-color: rgba(255,255,255,0.1) !important;
-    color: #d5dbe6 !important;
-    font-weight: 560 !important;
-    letter-spacing: 0.04em !important;
-    text-transform: none !important;
-  }
-  nav a:hover { border-color: rgba(255,255,255,0.28) !important; color: #fff !important; background: rgba(22,30,46,0.9) !important; }
-  nav a.on { background: #f5d78a !important; color: #1a1408 !important; border-color: #f5d78a !important; }
-  .subnav a {
-    background: rgba(16,22,34,0.72) !important;
-    border-color: rgba(255,255,255,0.1) !important;
-  }
-</style>
+<title>d4rth Launch Protocol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Manrope:wght@700;800&display=swap">
@@ -80,49 +11,33 @@ layout: null
 </head>
 <body>
 <div class="wrap">
-  <nav><a class="on" href="index.html">Home</a><a class="" href="LAUNCH-ANY-COIN-TEMPLATE.html">Template</a><a class="" href="BULMA-USBD-READY-TO-LAUNCH/README.html">Bulma</a><a class="" href="ANNOUNCEMENT-POSTS.html">Support</a><a class="" href="galaxy/">Galaxy</a></nav>
+  <nav><a class="on" href="index.html">Home</a><a class="" href="LAUNCH-ANY-COIN-TEMPLATE.html">Template</a><a class="" href="ANNOUNCEMENT-POSTS.html">Support</a><a class="" href="galaxy/">Galaxy</a></nav>
   <div class="kicker">The writeup</div>
   <h1>d4rth Launch Protocol</h1>
-  <div class="doc"><p class="apart" style="margin:0 0 18px;color:#8b93a3;font-size:13px;line-height:1.5">A launch template, not the live map. The ecosystem itself is <a href="https://tittyverse.fun" style="color:#e7ebf3">Tittyverse</a>.</p>
+  <div class="doc">
 
 <p><strong>A free guide for launching a Solana coin that has real money behind it.</strong></p>
-<p>Most new coins start thin and die. This is a six-step way to launch so the main pool is real dollars, the sides are locked, and other coins can connect to yours. The example coin is called Bulma Dollar. You can use that idea, or write your own. Same six steps either way. Copy <a href="LAUNCH-ANY-COIN-TEMPLATE.html">the template</a> and go.</p>
+<p>Most new coins start thin and die. This is a six-step way to launch so the main pool is real dollars, the sides are locked, and other coins can connect to yours. Use the template to launch any coin with real liquidity architecture. Copy <a href="LAUNCH-ANY-COIN-TEMPLATE.html">the template</a> and go.</p>
 <p><strong>Start here</strong></p>
-<ul><li>Launching your own coin? → <a href="LAUNCH-ANY-COIN-TEMPLATE.html">LAUNCH-ANY-COIN-TEMPLATE.md</a></li><li>The idea I used, ready to launch → <a href="BULMA-USBD-READY-TO-LAUNCH/README.html">BULMA-USBD-READY-TO-LAUNCH/</a></li><li>That idea on the map → <a href="https://d4rthban3.github.io/d4rth-launch-protocol/galaxy/">interactive galaxy</a></li><li>Support the protocol (creator fees) → <a href="#support-the-protocol-strongly-encouraged-not-required">section below</a></li></ul>
+<ul><li>Launching your own coin? → <a href="LAUNCH-ANY-COIN-TEMPLATE.html">LAUNCH-ANY-COIN-TEMPLATE.md</a></li><li>Explore the interactive galaxy → <a href="https://d4rthban3.github.io/d4rth-launch-protocol/galaxy/">interactive galaxy</a></li><li>Support the protocol (creator fees) → <a href="#support-the-protocol-strongly-encouraged-not-required">section below</a></li></ul>
 <p><strong>A launch guide for any Solana coin that should have real money behind it.</strong></p>
-<p>The d4rth Launch Protocol is the six steps below. Launch on pump.fun paired with USDC. That is the main pool. Lock 10% with BTC. Lock the next 10% with SOL. Your new coin becomes the hub other coins connect to. The example hub is Bulma Dollar. Yours can be any coin.</p>
+<p>The d4rth Launch Protocol is the six steps below. Launch on pump.fun paired with USDC. That is the main pool. Lock 10% with your primary partner/ecosystem token. Lock the next 10% with SOL. Your new coin becomes the hub other coins connect to. Fill in <a href="LAUNCH-ANY-COIN-TEMPLATE.html">LAUNCH-ANY-COIN-TEMPLATE.md</a> and go.</p>
 <h2>What these words mean</h2>
-<ul><li><strong>pump.fun</strong> — the site you launch the coin on. Price goes up as people buy.</li><li><strong>USDC</strong> — a dollar on Solana. The main pool is priced in dollars.</li><li><strong>Lock</strong> — put coins in a pool and freeze them so they cannot be removed.</li><li><strong>Meteora</strong> — the site where those locked pools are made.</li><li><strong>Hub</strong> — the new coin that other coins connect to. Bulma Dollar is the example. Yours can be any coin.</li><li><strong>Creator fee</strong> — optional. A slice of the launch fees. Holders can still get the rest.</li><li><strong>pump.fun curve</strong> — the first trading pool. It only sells about 79% of the coins. Then the coin moves on by itself.</li><li><strong>PumpSwap</strong> — the regular pool it moves to after that. You do not set this up.</li></ul>
-<hr>
-<h3>@slingoorio — this is the important part for you</h3>
-<p>The guide works for any coin. The idea I brought you is Bulma Dollar.</p>
-<p>If you run <strong>this</strong> idea, the key is locking a piece of <strong>every coin in the Big Titty group</strong> against Bulma Dollar ($USBD).</p>
-<p>Once it is launched on USDC, 20% bought, and the BTC and SOL locks are in place, you take a piece from each coin in the group and lock it in a Meteora pool against Bulma. Every coin in the group gets a pool with it. Bulma becomes the hub they all connect through.</p>
-<p>Open the map and hit <strong>Add Bulma</strong>. $BTC and Bulma become twin suns. That map is the example. Same shape if the hub is a coin of your choice.</p>
-<p><strong>Live map:</strong> <a href="https://d4rthban3.github.io/d4rth-launch-protocol/galaxy/">Big Titty Galaxy</a></p>
-<p>Full sequence and the example pack: <a href="BULMA-USBD-READY-TO-LAUNCH/README.html">BULMA-USBD-READY-TO-LAUNCH/</a>.</p>
+<ul><li><strong>pump.fun</strong> — the site you launch the coin on. Price goes up as people buy.</li><li><strong>USDC</strong> — a dollar on Solana. The main pool is priced in dollars.</li><li><strong>Lock</strong> — put coins in a pool and freeze them so they cannot be removed.</li><li><strong>Meteora</strong> — the site where those locked pools are made.</li><li><strong>Hub</strong> — the new coin that other coins connect to. Yours can be any coin.</li><li><strong>Creator fee</strong> — optional. A slice of the launch fees. Holders can still get the rest.</li><li><strong>pump.fun curve</strong> — the first trading pool. It only sells about 79% of the coins. Then the coin moves on by itself.</li><li><strong>PumpSwap</strong> — the regular pool it moves to after that. You do not set this up.</li></ul>
 <hr>
 <h2>The 6 steps</h2>
-<ol><li>Launch the coin on pump.fun, paired with USDC. USDC is a dollar on Solana. That is the main pool. <em>(The first pool only sells about 79% of the coins. Then the coin moves on by itself.)</em></li><li>Buy about 20% of the coins yourself. That leaves most of the rest for other people.</li><li>Lock 10% in a pool with BTC on Meteora. BTC is the main coin of this group. Lock means the money cannot be pulled back out.</li><li>Lock 10% in a pool with SOL on Meteora. Same thing, with Solana's own coin.</li><li>Leave the rest in the USDC pool. That stays the main pool, during the launch and after. <em>(Then it moves to PumpSwap.)</em></li><li>Then other coins lock a piece of their supply against your new coin. Your coin becomes the hub they all connect through. The example hub is Bulma Dollar. Yours can be any coin.</li></ol>
+<ol><li>Launch the coin on pump.fun, paired with USDC. USDC is a dollar on Solana. That is the main pool. <em>(The first pool only sells about 79% of the coins. Then the coin moves on by itself.)</em></li><li>Buy about 20% of the coins yourself. That leaves most of the rest for other people.</li><li>Lock 10% in a pool with the primary ecosystem or partner coin on Meteora. Lock means the money cannot be pulled back out.</li><li>Lock 10% in a pool with SOL on Meteora. Same thing, with Solana's own coin.</li><li>Leave the rest in the USDC pool. That stays the main pool, during the launch and after. <em>(Then it moves to PumpSwap.)</em></li><li>Then other coins lock a piece of their supply against your new coin. Your coin becomes the hub they all connect through.</li></ol>
+<p>Optional extra boost, not part of the protocol: a secondary stable pool paired to USDT. Its USDT pool is the thinner side, about 35% of USDC on Solana. The protocol works without it.</p>
 <p>Plus: add GitHub <code>d4rthban3</code> as a creator-fee recipient (strongly encouraged, see below).</p>
 <h2>Why 20%</h2>
 <ul><li>A pump.fun curve only sells about 79% of supply before it graduates. Big dev buys eat it.</li><li>10% side pools stay smaller than the USDC pool, so USDC stays the main pool.</li><li>It leaves most of the curve to real holders.</li></ul>
 <h2>Open call</h2>
-<p>@slingoorio, or any real one with capital: the protocol is yours to run on any token. I don't have the capital. The idea I used is the Bulma dollar, below. Someone run it. Support and disclaimer: <a href="ANNOUNCEMENT-POSTS.html">Support</a>.</p>
-<h2>Support the protocol (strongly encouraged, not required)</h2>
+<p>The protocol is yours to run on any token. Fill in <a href="LAUNCH-ANY-COIN-TEMPLATE.html">LAUNCH-ANY-COIN-TEMPLATE.md</a> to get started. Support and disclaimer: <a href="ANNOUNCEMENT-POSTS.html">Support</a>.</p>
+<h2 id="support-the-protocol-strongly-encouraged-not-required">Support the protocol (strongly encouraged, not required)</h2>
 <p>This protocol came out of a lot of research and testing, and it's free to use. Creator fees are how you support it. If you launch with the d4rth Launch Protocol, please add GitHub <strong>d4rthban3</strong> as a pump.fun creator-fee recipient.</p>
 <ol><li>On pump.fun, find the creator-fee recipients option (at token creation, or in the coin's creator-fee settings).</li><li>Add a recipient by GitHub username: <code>d4rthban3</code>.</li><li>Pick a share you're comfortable with.</li></ol>
 <p>It's optional. Nothing breaks without it. It only works if creator fees stay on, not pump.fun's send-all-fees-to-holders switch. Holder rewards are still the point, so you can share a slice and still pay holders.</p>
 <p>Credit line: <code>d4rth Launch Protocol by @d4rthban3 (GitHub d4rthban3)</code>.</p>
-<p><em>Optional extra boost, not part of the protocol: a Tether-themed token paired to USDT, Bulma and Big Titty Coin (BTC). Its USDT pool is the thinner side, about 35% of USDC on Solana. The protocol works without it. Bulma itself is paired to USDC, SOL and Big Titty Coin (BTC).</em></p>
-<h2>The example coin</h2>
-<h3>Bulma Dollar · $USBD</h3>
-<img src="BULMA-USBD-READY-TO-LAUNCH/USBD-ART/coin-images-and-logos/usbd-logo-lockup.png" alt="USBD">
-<p>This is the coin I wrote in. I liked the sound of it. I'd be happy if you launched it. Just as happy if the coin is yours. If you use this one, the ticker is $USBD.</p>
-<p><strong>Name:</strong> $USBD Ultimate Super Bulma Dragonballs. <strong>Concept:</strong> the Bulma dollar. The example hub for the Big Titty Coin ($BTC) group.</p>
-<p>Same six steps. Launch paired with USDC. Buy about 20%. Lock 10% with BTC. Lock the next 10% with SOL. Leave the rest on USDC. Then other coins lock a piece of their supply against it.</p>
-<p>Interactive map of that idea: <a href="https://d4rthban3.github.io/d4rth-launch-protocol/galaxy/">galaxy</a></p>
-<p>Full build, art, lore and posts: <a href="BULMA-USBD-READY-TO-LAUNCH/README.html">BULMA-USBD-READY-TO-LAUNCH/</a>.</p>
 <hr>
 <p>d4rth Launch Protocol by @d4rthban3 (GitHub d4rthban3). All rights reserved. Not financial advice. Check live prices on pump.fun before buying. Never share keys or seed phrases.</p>
   </div>

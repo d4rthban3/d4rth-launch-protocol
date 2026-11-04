@@ -15,8 +15,7 @@ Credit line, if you want one: `d4rth Launch Protocol by @d4rthban3 (GitHub d4rth
 
 ## Disclaimer
 - Not financial advice. This is a free guide for launching a Solana coin. It is not a promise, a recommendation, or an offer to buy or sell anything.
-- Bulma Dollar is the example coin I wrote in. It is not a coin you have to use. A coin of your choice works the same way.
-- Fan parody. Not a stablecoin, not pegged to anything, not affiliated with any anime studio.
+- Launch template. Not a stablecoin, not pegged to anything.
 - Check the live price on pump.fun before you buy. The price moves with every buy.
 - Never share your keys or seed phrase with anyone. Not with me. Not with a site.
 - Not open source. All rights reserved. Follow the protocol as written to launch with it.
