@@ -570,10 +570,12 @@ const RINGS = [15, 24, 33, 42].map(r => r * 1.48);
 // lan = longitude of ascending node (direction the ring tips), ecc = eccentricity.
 // Think of these like differently-tilted shells in an atom or the planets in a solar system.
 const RING_PLANES = [
-  { inc: 0.28, lan: 0.0,   ecc: 0.08 },   // ring 0 – inner, modest tilt, nearly circular
-  { inc: 0.52, lan: 1.9,   ecc: 0.14 },   // ring 1 – habitable zone, steeper tilt opposite side
-  { inc: 0.18, lan: 3.4,   ecc: 0.22 },   // ring 2 – gas giants, shallow but noticeably elliptic
-  { inc: 0.70, lan: 0.85,  ecc: 0.11 },   // ring 3 – deep reach, dramatically inclined
+  // Each ring is a genuinely different orbital plane – inclination (tilt), node (which direction
+  // the ring tips toward), eccentricity (how elliptic). Like atom shells or solar system planes.
+  { inc: 0.30, lan: 0.00, ecc: 0.10 },   // ring 0 – inner ring, slight tilt forward
+  { inc: 1.05, lan: 1.57, ecc: 0.18 },   // ring 1 – nearly perpendicular, tips to the right (60°)
+  { inc: 0.62, lan: 3.14, ecc: 0.28 },   // ring 2 – 35° tilt, tips backward, noticeably elliptic
+  { inc: 1.30, lan: 0.78, ecc: 0.15 },   // ring 3 – outer ring almost edge-on (74°), dramatic atom look
 ];
 // Radians per second at 100%. Inner ring 0.045, outer 0.015 (0.09 and 0.03 per two seconds); the two between step down evenly.
 const ORBIT_INNER = 0.045, ORBIT_OUTER = 0.015;
