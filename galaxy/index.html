@@ -593,7 +593,7 @@ const RING_PLANES = [
 ];
 const RING_DEFAULT = RING_PLANES.map(p => ({ ...p }));
 const RING_COLORS = ['rgba(255,183,51,0.50)', 'rgba(100,210,160,0.44)', 'rgba(130,180,255,0.44)', 'rgba(190,140,255,0.38)'];
-let shapeRev = 0;
+let shapeRev = 0, shapeHot = -1, shapeHotT = 0;
 // Presets for the shape of the whole system. inc = tilt, lan = which way the ring turns about the vertical axis.
 const SHAPE_PRESETS = {
   atom: RING_PLANES.map((_, i) => ({ inc: Math.PI / 2, lan: i * Math.PI / RING_PLANES.length, ecc: 0.12 })),   // four rings through one axis, like an atom
@@ -1189,6 +1189,11 @@ document.getElementById('shapePresets').addEventListener('click', e => {
   SHAPE_PRESETS[k].forEach((q, i) => Object.assign(RING_PLANES[i], q));
   shapeRev++; shapeSave(); shapeSync();
 });
+const shapeEl = document.getElementById('shapeRows');
+const hotOn = e => { const b = e.target.closest && e.target.closest('.shape-ring'); if (b) { clearTimeout(shapeHotT); shapeHot = +b.dataset.r; } };
+const hotOff = () => { clearTimeout(shapeHotT); shapeHotT = setTimeout(() => { shapeHot = -1; }, 700); };
+['pointerover', 'pointerdown', 'focusin'].forEach(n => shapeEl.addEventListener(n, hotOn));
+['pointerout', 'pointerup', 'pointercancel', 'focusout'].forEach(n => shapeEl.addEventListener(n, hotOff));
 buildShape();
 function common(list, f) { if (!list.length) return 0; const v = f(list[0]); return list.every(t => f(t) === v) ? v : null; }
 // One place that repaints every slider (master, each orbit, each token) from the token values.
@@ -1877,7 +1882,7 @@ function loop() {
   const bootA = stickerHold ? 0 : booting ? (loop._seen ? Math.min(1, (performance.now() - loop._seen) / 700) : 0) : 1;
   let mix = 0;
   for (const t of bodies) mix += t.boost + t.share + t.shareUsdt + (t.loaded ? 1 : 0);
-  const sig = [booting, bootA, camX.join(), camY.join(), camZ.join(), dist, usdcT, usdtT, W, H, view, showLabels, showOrbits, showPairs, selected && selected.mint, anchor.mint, imgVersion, dive ? performance.now() : 0, mix, hubImg.complete, toastImg.complete, usdtImg.complete, hubTab, shapeRev, orbitPhase, starRev, starHover && starHover.mint, starPending && starPending.mint].join('|');
+  const sig = [booting, bootA, camX.join(), camY.join(), camZ.join(), dist, usdcT, usdtT, W, H, view, showLabels, showOrbits, showPairs, selected && selected.mint, anchor.mint, imgVersion, dive ? performance.now() : 0, mix, hubImg.complete, toastImg.complete, usdtImg.complete, hubTab, shapeRev, shapeHot, orbitPhase, starRev, starHover && starHover.mint, starPending && starPending.mint].join('|');
   if (sig === lastSig) { requestAnimationFrame(loop); return; }
   lastSig = sig;
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
@@ -1914,9 +1919,21 @@ function loop() {
         const p = place(radius * spread, (i / 200) * Math.PI * 2, ring);
         if (i) ctx.lineTo(p.x, p.y); else ctx.moveTo(p.x, p.y);
       }
-      ctx.strokeStyle = RING_COLORS[ring] || 'rgba(119,118,106,0.34)';
+      ctx.strokeStyle = (RING_COLORS[ring] || 'rgba(119,118,106,0.34)');
       ctx.lineWidth = 1.2;
+      if (shapeHot >= 0) {                                   // the ring being edited glows, the others step back
+        if (ring === shapeHot) {
+          ctx.strokeStyle = RING_COLORS[ring].replace(/,[\d.]+\)$/, ',1)'); ctx.lineWidth = 3.2;
+          ctx.shadowColor = ctx.strokeStyle; ctx.shadowBlur = 14;
+        } else ctx.globalAlpha = 0.3 * emergeA;
+      }
       ctx.stroke();
+      ctx.shadowBlur = 0; ctx.globalAlpha = emergeA;
+      if (shapeHot === ring) {
+        const lp = place(radius * spread, 0, ring);
+        ctx.fillStyle = '#f4f1ea'; ctx.font = '600 12px "DM Sans", sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+        ctx.fillText('Orbit ' + (ring + 1), lp.x + 8, lp.y);
+      }
     });
   }
   const centers = centerCluster();
