@@ -170,6 +170,12 @@
   }
   .star-credit:hover { color: var(--tv-acid); }
   .star-credit[hidden] { display: none; }
+  .shape-presets { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+  .shape-presets button { height: 28px; padding: 0 10px; border: 1px solid var(--tv-rule); background: transparent; color: var(--tv-paper); font-size: 11px; cursor: pointer; }
+  .shape-presets button:hover { border-color: var(--tv-acid); color: var(--tv-acid); }
+  .shape-ring { margin: 0 0 12px; padding: 8px 0 2px; border-top: 1px solid var(--tv-rule); }
+  .shape-ring .nm { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .shape-ring .nm i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
   .star-tools { position: absolute; left: 50%; bottom: 54px; transform: translateX(-50%); z-index: 5; display: flex; align-items: center; gap: 8px; max-width: calc(100% - 24px); padding: 6px 8px; border: 1px solid var(--tv-rule); background: rgba(16,16,14,.88); font: 11px/1.3 "DM Sans", sans-serif; color: var(--tv-muted); }
   .star-tools[hidden] { display: none; }
   .star-tools span { min-width: 0; }
@@ -547,6 +553,14 @@ try {
         <div class="ceil" id="ceilBox"></div>
         <div class="ceil" id="launchBox"></div>
         <p class="weightline">How the numbers work: added money = supply share × market cap (after the increase). USDT counts at about 35% of that, because Solana holds $2.40B of USDT against $6.83B of USDC. Closer = new money ÷ (current liquidity + new money), up to 42% nearer Star.</p>
+        <div class="sl orbs-h">Orbit shape <b>tilt each ring's axis</b></div>
+        <div class="shape-presets" id="shapePresets">
+          <button type="button" data-preset="atom">Atom</button>
+          <button type="button" data-preset="solar">Solar system</button>
+          <button type="button" data-preset="flat">Flat</button>
+          <button type="button" data-preset="default">Reset</button>
+        </div>
+        <div id="shapeRows"></div>
         <div class="sl orbs-h">Orbit sliders <b>each ring on its own</b></div>
         <div id="orbits"></div>
         <details id="tokenDetails" class="tokdet"><summary>Individual tokens (optional)</summary><div id="rows"></div></details>
@@ -577,6 +591,21 @@ const RING_PLANES = [
   { inc: 0.62, lan: 3.14, ecc: 0.28 },   // ring 2 – 35° tilt, tips backward, noticeably elliptic
   { inc: 1.30, lan: 0.78, ecc: 0.15 },   // ring 3 – outer ring almost edge-on (74°), dramatic atom look
 ];
+const RING_DEFAULT = RING_PLANES.map(p => ({ ...p }));
+const RING_COLORS = ['rgba(255,183,51,0.50)', 'rgba(100,210,160,0.44)', 'rgba(130,180,255,0.44)', 'rgba(190,140,255,0.38)'];
+let shapeRev = 0;
+// Presets for the shape of the whole system. inc = tilt, lan = which way the ring turns about the vertical axis.
+const SHAPE_PRESETS = {
+  atom: RING_PLANES.map((_, i) => ({ inc: Math.PI / 2, lan: i * Math.PI / RING_PLANES.length, ecc: 0.12 })),   // four rings through one axis, like an atom
+  solar: RING_PLANES.map((_, i) => ({ inc: 0.03 * (i + 1), lan: i * 1.2, ecc: 0.05 + 0.03 * i })),            // nearly flat, like a solar system
+  flat: RING_PLANES.map(() => ({ inc: 0, lan: 0, ecc: 0 })),
+  default: RING_DEFAULT
+};
+const SHAPE_KEY = 'd4rth.shape.v1';
+try {
+  const sv = JSON.parse(localStorage.getItem(SHAPE_KEY) || 'null');
+  if (Array.isArray(sv) && sv.length === RING_PLANES.length) sv.forEach((q, i) => { if (q && isFinite(q.inc) && isFinite(q.lan) && isFinite(q.ecc)) Object.assign(RING_PLANES[i], { inc: +q.inc, lan: +q.lan, ecc: Math.min(0.7, Math.max(0, +q.ecc)) }); });
+} catch (e) {}
 // Radians per second at 100%. Inner ring 0.045, outer 0.015 (0.09 and 0.03 per two seconds); the two between step down evenly.
 const ORBIT_INNER = 0.045, ORBIT_OUTER = 0.015;
 let orbitPhase = 0, orbitLast = 0;
@@ -898,16 +927,14 @@ function orbitWorld(theta, R, ringIdx) {
   const a = R, b = R * Math.sqrt(Math.max(0, 1 - ecc * ecc));
   const lx = a * Math.cos(theta);
   const lz = b * Math.sin(theta);
-  // Rotate by LAN around world-Y axis, then tilt by inc around the new X axis
+  // Tilt the orbit plane by inc about the X axis, then swing it about the vertical (Y) axis by lan,
+  // so lan really chooses which way the ring tips. inc 90 with different lan gives planes through one axis, like an atom.
   const cosL = Math.cos(lan), sinL = Math.sin(lan);
   const cosI = Math.cos(inc), sinI = Math.sin(inc);
-  // After LAN rotation: X' = lx·cosL - lz·sinL, Z' = lx·sinL + lz·cosL
-  const wx = lx * cosL - lz * sinL;
-  const wz = lx * sinL + lz * cosL;
-  // After inclination tilt: Y'' = -wz·sinI, Z'' = wz·cosI  (tilts the XZ plane)
-  const wy = -wz * sinI;
-  const wz2 = wz * cosI;
-  return [wx, wy, wz2];
+  const x1 = lx, y1 = -lz * sinI, z1 = lz * cosI;
+  const wx = x1 * cosL + z1 * sinL;
+  const wz2 = -x1 * sinL + z1 * cosL;
+  return [wx, y1, wz2];
 }
 function place(radius, angle, ring) {
   return project(orbitWorld(angle, radius, ring || 0));
@@ -1129,6 +1156,40 @@ orbitsEl.addEventListener('input', e => {
   else list.forEach(t => { t[shareKey()] = v / 100; });
   syncControls(); paintDeltas(); renderInspector();
 });
+const SHAPE_ROWS = [['inc', 'Tilt', 0, 90, 1, v => Math.round(v * 180 / Math.PI) + '°', v => v * Math.PI / 180],
+  ['lan', 'Turn', 0, 360, 1, v => Math.round(v * 180 / Math.PI) + '°', v => v * Math.PI / 180],
+  ['ecc', 'Oval', 0, 70, 1, v => Math.round(v * 100) + '%', v => v / 100]];
+function shapeSave() { try { localStorage.setItem(SHAPE_KEY, JSON.stringify(RING_PLANES)); } catch (e) {} }
+function shapeSync() {
+  document.querySelectorAll('#shapeRows .shape-ring').forEach(box => {
+    const pl = RING_PLANES[+box.dataset.r];
+    box.querySelectorAll('input').forEach(inp => {
+      const row = SHAPE_ROWS.find(r => r[0] === inp.dataset.k);
+      let deg = inp.dataset.k === 'lan' ? ((pl.lan % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI) : pl[inp.dataset.k];
+      const shown = inp.dataset.k === 'ecc' ? deg * 100 : deg * 180 / Math.PI;
+      if (document.activeElement !== inp) inp.value = Math.round(shown);
+      box.querySelector('[data-l="' + inp.dataset.k + '"]').textContent = row[5](deg);
+    });
+  });
+}
+function buildShape() {
+  document.getElementById('shapeRows').innerHTML = RING_PLANES.map((pl, i) =>
+    '<div class="shape-ring" data-r="' + i + '"><div class="nm"><i style="background:' + RING_COLORS[i].replace(/,[\d.]+\)$/, ',1)') + '"></i><b>Orbit ' + (i + 1) + '</b></div>'
+    + SHAPE_ROWS.map(r => '<div class="sl">' + r[1] + ' <b data-l="' + r[0] + '"></b></div><input type="range" data-k="' + r[0] + '" min="' + r[2] + '" max="' + r[3] + '" step="' + r[4] + '" value="0">').join('') + '</div>').join('');
+  shapeSync();
+}
+document.getElementById('shapeRows').addEventListener('input', e => {
+  const box = e.target.closest('.shape-ring'); if (!box || !e.target.dataset.k) return;
+  const row = SHAPE_ROWS.find(r => r[0] === e.target.dataset.k);
+  RING_PLANES[+box.dataset.r][e.target.dataset.k] = row[6](Number(e.target.value));
+  shapeRev++; shapeSave(); shapeSync();
+});
+document.getElementById('shapePresets').addEventListener('click', e => {
+  const k = e.target.dataset.preset; if (!k || !SHAPE_PRESETS[k]) return;
+  SHAPE_PRESETS[k].forEach((q, i) => Object.assign(RING_PLANES[i], q));
+  shapeRev++; shapeSave(); shapeSync();
+});
+buildShape();
 function common(list, f) { if (!list.length) return 0; const v = f(list[0]); return list.every(t => f(t) === v) ? v : null; }
 // One place that repaints every slider (master, each orbit, each token) from the token values.
 function syncControls() {
@@ -1816,7 +1877,7 @@ function loop() {
   const bootA = stickerHold ? 0 : booting ? (loop._seen ? Math.min(1, (performance.now() - loop._seen) / 700) : 0) : 1;
   let mix = 0;
   for (const t of bodies) mix += t.boost + t.share + t.shareUsdt + (t.loaded ? 1 : 0);
-  const sig = [booting, bootA, camX.join(), camY.join(), camZ.join(), dist, usdcT, usdtT, W, H, view, showLabels, showOrbits, showPairs, selected && selected.mint, anchor.mint, imgVersion, dive ? performance.now() : 0, mix, hubImg.complete, toastImg.complete, usdtImg.complete, hubTab, orbitPhase, starRev, starHover && starHover.mint, starPending && starPending.mint].join('|');
+  const sig = [booting, bootA, camX.join(), camY.join(), camZ.join(), dist, usdcT, usdtT, W, H, view, showLabels, showOrbits, showPairs, selected && selected.mint, anchor.mint, imgVersion, dive ? performance.now() : 0, mix, hubImg.complete, toastImg.complete, usdtImg.complete, hubTab, shapeRev, orbitPhase, starRev, starHover && starHover.mint, starPending && starPending.mint].join('|');
   if (sig === lastSig) { requestAnimationFrame(loop); return; }
   lastSig = sig;
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
@@ -1847,12 +1908,6 @@ function loop() {
   const spread = orbitSpread();
   if (showOrbits) {
     // Each ring gets its own colour so the distinct inclined orbital planes read as separate shells.
-    const RING_COLORS = [
-      'rgba(255,183,51,0.50)',    // ring 0 – inner, gold
-      'rgba(100,210,160,0.44)',   // ring 1 – habitable, teal-green
-      'rgba(130,180,255,0.44)',   // ring 2 – gas giants, blue
-      'rgba(190,140,255,0.38)',   // ring 3 – deep reach, violet
-    ];
     RINGS.forEach((radius, ring) => {
       ctx.beginPath();
       for (let i = 0; i <= 200; i++) {
